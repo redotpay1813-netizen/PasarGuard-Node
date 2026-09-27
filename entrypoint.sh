@@ -10,7 +10,7 @@ KEY_FILE=$DATA_DIR/api_key.txt
 mkdir -p "$CERT_DIR"
 
 # Railway خودش این متغیر رو به هر سرویس تزریق می‌کنه؛ همون آدرس داخلیه که پنل باهاش وصل میشه
-HOSTNAME_FOR_CERT="${RAILWAY_PRIVATE_DOMAIN:-node}"
+HOSTNAME_FOR_CERT="${TLS_SERVER_NAME:-${RAILWAY_PRIVATE_DOMAIN:-node}}"
 
 if [ ! -f "$CERT" ] || [ ! -f "$KEY" ]; then
   echo ">> در حال ساخت گواهی SSL برای نود (CN/SAN = $HOSTNAME_FOR_CERT)..."
